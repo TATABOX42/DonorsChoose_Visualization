@@ -21,7 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 27017, host: 27017
+  # config.vm.network "forwarded_port", guest: 27017, host: 27017
+  config.vm.network :forwarded_port, guest: 27017, host: 1234
 
   # install MongoDB (bind to all the interface, SECURITY ISSUES HERE!!!!)
   config.vm.provision "shell", inline: "apt-get update && apt-get install -y mongodb && sed -i 's/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/' /etc/mongodb.conf && service mongobd restart"

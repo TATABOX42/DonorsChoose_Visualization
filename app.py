@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
+# MONGODB_PORT = 1234
 DBS_NAME = 'donorschoose'
 COLLECTION_NAME = 'projects'
 FIELDS = {'school_state': True, 'resource_type': True, 'poverty_level': True, 'date_posted': True, 'total_donations': True, '_id': False}
@@ -34,3 +35,4 @@ def donorschoose_projects():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
+    # app.run(host='127.0.0.1',port=5000,debug=True)
